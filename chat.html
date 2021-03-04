@@ -11,7 +11,7 @@
 
 </head>
 
-<body >
+<body onload="startEmbeddedChat('5000E00000DKUnQQAX','Harun','Kamcat','Chatbot parameter by Microsoft Lorem Ipsum1~~Chatbot parameter by Microsoft Lorem Ipsum2~~Chatbot parameter by Microsoft Lorem Ipsum3')">
 
 <h1>YODA</h1>
 <h2>Chat Page</h2>
@@ -31,12 +31,12 @@
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.language = 'tr'; //For example, enter 'en' or 'en-US'
 
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+		embedded_svc.settings.defaultMinimizedText = 'Canlı Yardım'; //(Defaults to Chat with an Expert)
+		embedded_svc.settings.disabledMinimizedText = 'Çevrim Dışı'; //(Defaults to Agent Offline)
 
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		embedded_svc.settings.loadingText = 'Yükleniyor'; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 		// Settings for Chat
@@ -48,6 +48,7 @@
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 
+		
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
@@ -78,6 +79,69 @@
 	} else {
 		initESW('https://service.force.com');
 	}
+</script>
+
+
+<script language="JavaScript" type="text/javascript">
+function startEmbeddedChat(pCaseId,pFirstName,pLastName,pChatbotValue) {
+
+	embedded_svc.liveAgentAPI.startChat({
+		directToAgentRouting: {
+			buttonId: '5730E0000004Cks',
+			fallback: true
+		},
+		extraPrechatInfo: [{
+			"entityFieldMaps":[{
+				"isExactMatch":true,
+				"fieldName":"Id",
+				"doCreate":false,
+				"doFind":true,
+				"label":"Case ID"
+			}],
+			"entityName":"Case",
+			"saveToTranscript":"CaseID"
+		},
+		{
+		  "entityFieldMaps": [{
+			"doCreate":false,
+			"doFind":false,
+			"fieldName":"LastName",
+			"isExactMatch":true,
+			"label":"Last Name"
+		  }, {
+			"doCreate":false,
+			"doFind":false,
+			"fieldName":"FirstName",
+			"isExactMatch":true,
+			"label":"First Name"
+		  }],
+		  "entityName":"Contact",
+		  "showOnCreate":true
+		}
+
+
+		],
+		extraPrechatFormDetails: [{
+			"label":"Case ID",
+			"value":pCaseId,
+			"transcriptFields":[],
+			"displayToAgent":true
+		},{
+			"label": "ChatBot",
+			"value": pChatbotValue,
+			/*"transcriptFields": ["ChatBot__c"],*/
+			"displayToAgent": true
+		}, {
+		  "label": "First Name",
+		  "value": pFirstName,
+		  "displayToAgent": true
+		}, {
+		  "label": "Last Name",
+		  "value": pLastName,
+		  "displayToAgent": true
+		}]
+	});
+}
 </script>
 
 </body>
