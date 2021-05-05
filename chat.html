@@ -11,10 +11,10 @@
 
 </head>
 
-<body onload="startEmbeddedChat('5000E00000DKUnQQAX','Harun','Kamcat','Chatbot parameter by Microsoft Lorem Ipsum1~~Chatbot parameter by Microsoft Lorem Ipsum2~~Chatbot parameter by Microsoft Lorem Ipsum3')">
+<body onload="startEmbeddedChat('5000E00000DKUnQQAX','Harun','Kamcat','Chatbot parameter by Microsoft Lorem Ipsum1~~Chatbot parameter by Microsoft Lorem Ipsum2~~Chatbot parameter by Microsoft Lorem Ipsum3','+905688056324','Beko','SessionId_123456')">
 
 <h1>YODA</h1>
-<h2>Chat Page v202103041527</h2>
+<h2>Chat Page v202105051455</h2>
 
 
 <style type='text/css'>
@@ -83,7 +83,7 @@
 
 
 <script language="JavaScript" type="text/javascript">
-function startEmbeddedChat(pCaseId,pFirstName,pLastName,pChatbotValue) {
+function startEmbeddedChat(pCaseId,pFirstName,pLastName,pChatbotValue,pPhone,pBrand,pSessionId) {
 
 	embedded_svc.liveAgentAPI.startChat({
 		directToAgentRouting: {
@@ -138,6 +138,19 @@ function startEmbeddedChat(pCaseId,pFirstName,pLastName,pChatbotValue) {
 		}, {
 		  "label": "Last Name",
 		  "value": pLastName,
+		  "displayToAgent": true
+		}, {
+		  "label": "Visitor Phone",
+		  "value": pPhone,
+		  "transcriptFields": ["ARC_VisitorsPhone__c"],
+		  "displayToAgent": true
+		}, {
+		  "label": "Brand",
+		  "value": pBrand,
+		  "displayToAgent": true
+		}, {
+		  "label": "SessionId",
+		  "value": pSessionId,
 		  "displayToAgent": true
 		}]
 	});
