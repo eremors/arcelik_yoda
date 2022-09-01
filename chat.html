@@ -14,7 +14,7 @@
 <body onload="startEmbeddedChat('5000E00000DKUnQQAX','Harun','Kamcat','Chatbot parameter by Microsoft Lorem Ipsum1~~Chatbot parameter by Microsoft Lorem Ipsum2~~Chatbot parameter by Microsoft Lorem Ipsum3','+905688056324','Beko','SessionId_123456','Buzdolabı Soğutmuyor')">
 
 <h1>YODA</h1>
-<h2>Chat Page v202105051630</h2>
+<h2>Chat Page v202209011445</h2>
 
 
 <style type='text/css'>
@@ -134,10 +134,12 @@ function startEmbeddedChat(pCaseId,pFirstName,pLastName,pChatbotValue,pPhone,pBr
 		}, {
 		  "label": "First Name",
 		  "value": pFirstName,
+		  "transcriptFields": ["ARC_VisitorsFirstName__c"],
 		  "displayToAgent": true
 		}, {
 		  "label": "Last Name",
 		  "value": pLastName,
+		  "transcriptFields": ["ARC_VisitorsLastName__c"],
 		  "displayToAgent": true
 		}, {
 		  "label": "Visitor Phone",
