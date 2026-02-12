@@ -14,7 +14,7 @@
 <body onload="startEmbeddedChat('5000E00000DKUnQQAX','Harun','Kamcat','Chatbot parameter by Microsoft Lorem Ipsum1~~Chatbot parameter by Microsoft Lorem Ipsum2~~Chatbot parameter by Microsoft Lorem Ipsum3','+905688056324','Beko','SessionId_123456','Buzdolabı Soğutmuyor')">
 
 <h1>YODA</h1>
-<h2>Chat Page v202602121430</h2>
+<h2>Chat Page v202602121515</h2>
 
 
 <style type='text/css'>
@@ -53,7 +53,7 @@
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
-			'https://argrp--TEST.my.salesforce.com',
+			'https://argrp--test.sandbox.my.salesforce.com',
 			'https://argrp--test.sandbox.my.site.com/community101',
 			gslbBaseURL,
 			'00D0E00000022q8',
@@ -71,7 +71,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://argrp--TEST.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://argrp--test.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
